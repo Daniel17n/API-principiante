@@ -1,0 +1,12 @@
+function getUsers(req, res) {
+  res.send('No hay usuarios, de hecho, no hay nada. ERROR 404. Users not found');
+}
+
+function getDB(req, res) {
+  res.send('Ostras! Se nos ha olvidado encender la base de datos, espera... [F5]');
+}
+
+module.exports = {
+  getDB,
+  getUsers,
+};

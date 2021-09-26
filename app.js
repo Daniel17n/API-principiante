@@ -4,7 +4,7 @@ const app = express();
 
 const bodyParser = require('body-parser');
 
-const userRoutes = require('./routes/user_routes');
+const userRoutes = require('./routes/userRoutes');
 
 const port = process.env.PORT || 3000;
 
@@ -17,16 +17,13 @@ app.use(methodOverride());
 const router = express.Router();
 
 router.get('/', (req, res) => {
-  res.send('Hola mundo!');
+  res.send('Ponle algo más, aquí no hay nada!');
 });
 
 app.use(router);
 
-const routes = require('./routes/user_routes');
-
-app.use('/', router);
+app.use('/', userRoutes);
 
 app.listen(port, () => {
-  // eslint-disable-next-line no-console
   console.log('Node server running on http://localhost:3000');
 });
