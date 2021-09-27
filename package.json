@@ -4,7 +4,8 @@
   "dependencies": {
     "body-parser": "^1.5.1",
     "express": "^5.0.0-alpha.8",
-    "method-override": "^2.1.2"
+    "method-override": "^2.1.2",
+    "nodemon": "^2.0.13"
   },
   "description": "Una API muy rudimentaria y básica",
   "main": "app.js",

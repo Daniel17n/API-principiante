@@ -4,7 +4,7 @@ const app = express();
 
 const bodyParser = require('body-parser');
 
-const userRoutes = require('./routes/userRoutes');
+const laptopRoutes = require('./routes/laptopRoutes');
 
 const port = process.env.PORT || 3000;
 
@@ -22,7 +22,7 @@ router.get('/', (req, res) => {
 
 app.use(router);
 
-app.use('/', userRoutes);
+app.use('/', laptopRoutes);
 
 app.listen(port, () => {
   console.log('Node server running on http://localhost:3000');

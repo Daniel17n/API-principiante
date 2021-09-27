@@ -1,5 +1,5 @@
-function getUsers(req, res) {
-  res.send('No hay usuarios, de hecho, no hay nada. ERROR 404. Users not found');
+function getModel(req, res) {
+  res.send('De momento no hay modelos disponibles');
 }
 
 function getDB(req, res) {
@@ -8,5 +8,5 @@ function getDB(req, res) {
 
 module.exports = {
   getDB,
-  getUsers,
+  getModel,
 };
