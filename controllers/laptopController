@@ -1,3 +1,5 @@
+const Laptop = require('../models/laptopModel');
+
 function getModel(req, res) {
   res.send('De momento no hay modelos disponibles');
 }
@@ -6,7 +8,23 @@ function getDB(req, res) {
   res.send('Ostras! Se nos ha olvidado encender la base de datos, espera... [F5]');
 }
 
+function createLaptop(req, res) {
+  const laptop = new Laptop(req.body);
+
+  laptop.save((error, newLaptop) => {
+    if (error) return res.status(400).send({ message: 'Error saving this laptop', error });
+
+    return res.status(200).send({ message: 'Saved user', newLaptop });
+  });
+}
+
+/* function findLaptop(req, res) {
+  res.send('Ostras! Se nos ha olvidado encender la base de datos, espera... [F5]');
+} */
+
 module.exports = {
   getDB,
   getModel,
+  createLaptop,
+  // findLaptop,
 };

@@ -1,6 +1,9 @@
 const router = require('express').Router();
-const userController = require('../controllers/laptopController');
+const laptopController = require('../controllers/laptopController');
 
-router.get('/model', userController.getModel);
-router.get('/db', userController.getDB);
+router.get('/model', laptopController.getModel);
+router.get('/db', laptopController.getDB);
+// router.post('/post', laptopController.createLaptop);
+// router.post('/find', laptopController.findLaptop);
+
 module.exports = router;

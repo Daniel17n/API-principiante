@@ -8,11 +8,8 @@ const laptopRoutes = require('./routes/laptopRoutes');
 
 const port = process.env.PORT || 3000;
 
-const methodOverride = require('method-override');
-
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(methodOverride());
 
 const router = express.Router();
 
