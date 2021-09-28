@@ -8,13 +8,13 @@ function getDB(req, res) {
   res.send('Ostras! Se nos ha olvidado encender la base de datos, espera... [F5]');
 }
 
-function createLaptop(req, res) {
+function addLaptop(req, res) {
   const laptop = new Laptop(req.body);
 
   laptop.save((error, newLaptop) => {
     if (error) return res.status(400).send({ message: 'Error saving this laptop', error });
 
-    return res.status(200).send({ message: 'Saved user', newLaptop });
+    return res.status(200).send({ message: 'Saved laptop', newLaptop });
   });
 }
 
@@ -25,6 +25,6 @@ function createLaptop(req, res) {
 module.exports = {
   getDB,
   getModel,
-  createLaptop,
+  addLaptop,
   // findLaptop,
 };
