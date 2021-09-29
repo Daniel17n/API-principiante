@@ -1,9 +1,11 @@
-const router = require('express').Router();
+const { Router } = require('express');
 const laptopController = require('../controllers/laptopController');
 
-router.get('/model', laptopController.getModel);
-router.get('/db', laptopController.getDB);
+const router = Router();
+
+//router.get('/model', laptopController.getModel);
+//router.get('/db', laptopController.getDB);
 router.post('/', laptopController.addLaptop);
-// router.post('/find', laptopController.findLaptop);
+router.get('/find', laptopController.findLaptop);
 
 module.exports = router;
