@@ -5,8 +5,8 @@ const { Schema } = mongoose;
 const laptopSchema = new Schema({
   model: { type: String },
   builder: { type: String },
-  cpu_model: { type: String },
-  gpu_model: { type: String },
+  cpu: { type: String },
+  gpu: { type: String },
   ram: { type: String },
 });
 

@@ -9,6 +9,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(methodOverride());
 app.use(router);
-app.use('/', laptopRoutes);
+app.use('/laptop', laptopRoutes);
 
 module.exports = app;

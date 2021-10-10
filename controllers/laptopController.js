@@ -1,6 +1,5 @@
-const laptopModel = require('../models/laptopModel');
 const Laptop = require('../models/laptopModel');
-/*
+
 function getModel(req, res) {
   res.send('De momento no hay modelos disponibles');
 }
@@ -8,7 +7,7 @@ function getModel(req, res) {
 function getDB(req, res) {
   res.send('Ostras! Se nos ha olvidado encender la base de datos, espera... [F5]');
 }
-*/
+
 function addLaptop(req, res) {
   const laptop = new Laptop(req.body);
 
@@ -21,17 +20,29 @@ function addLaptop(req, res) {
 
 function findLaptop(req, res) {
   const param = req.body;
+  console.log(req.body);
 
-  laptopModel.find(param, (error, laptop) => {
+  Laptop.find(param, (error, laptop) => {
     if (error) return res.status(404).send({ message: 'No laptop found', error });
 
     return res.status(200).send(laptop);
   });
 }
 
+function changeLaptop(req, res) {
+  const { id } = req.params;
+  const laptop = new Laptop(req.body);
+
+  Laptop.findByIdAndReplace(id, laptop, (err) => {
+    if (err) return res.status(404).send({ message: 'No laptop model to replace found', err });
+    return res.status(200).send({ message: 'Laptop data replaced' });
+  });
+}
+
 module.exports = {
- /* getDB,
-  getModel,*/
+  getDB,
+  getModel,
   addLaptop,
   findLaptop,
+  changeLaptop,
 };
