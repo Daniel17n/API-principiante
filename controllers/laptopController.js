@@ -33,9 +33,9 @@ function changeLaptop(req, res) {
   const { id } = req.params;
   const laptop = new Laptop(req.body);
 
-  Laptop.findByIdAndReplace(id, laptop, (err) => {
+  Laptop.findOneAndReplace(id, laptop, (err) => {
     if (err) return res.status(404).send({ message: 'No laptop model to replace found', err });
-    return res.status(200).send({ message: 'Laptop data replaced' });
+    return res.status(200).send({ message: 'Laptop data replaced', id });
   });
 }
 
