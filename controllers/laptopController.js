@@ -35,7 +35,18 @@ function changeLaptop(req, res) {
 
   Laptop.findOneAndReplace(id, laptop, (err) => {
     if (err) return res.status(404).send({ message: 'No laptop model to replace found', err });
-    return res.status(200).send({ message: 'Laptop data replaced', id });
+    return res.status(200).send({ message: 'Laptop data replaced', laptop });
+  });
+}
+
+function deleteLaptop(req, res) {
+  const { id } = req.params;
+  const laptop = new Laptop(req.body);
+  console.log(id);
+  laptop.findByIdAndRemove(id, (err, model) => {
+    if (err) return res.status(500).send(err);
+    if (!model) return res.status(404).send({ message: 'Model not found' });
+    return res.status(200).send({ message: 'Model deleted' });
   });
 }
 
@@ -45,4 +56,5 @@ module.exports = {
   addLaptop,
   findLaptop,
   changeLaptop,
+  deleteLaptop,
 };

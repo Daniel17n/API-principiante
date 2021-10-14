@@ -8,5 +8,6 @@ const router = Router();
 router.get('/', laptopController.findLaptop);
 router.post('/', laptopController.addLaptop);
 router.put('/:id', laptopController.changeLaptop);
+router.delete('/:id', laptopController.deleteLaptop);
 
 module.exports = router;
